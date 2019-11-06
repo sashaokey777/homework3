@@ -44,7 +44,13 @@
 
         // 4) Написать функцию котороя принимает массив, и выводит новый массив из тех элементов которые кратны 5!!
         function multipleOfFive(array) {
-            // ваш код
+            let newArray = [];
+            var a = 5;
+            for (let i = 0; i < array.length; i++) {
+                if (i % a != 0) {
+                    newArray[newArray.length] = array[i];
+                }
+                return newArray;
         }
         multipleOfFive([20, 5, 3, 23, 15, 8, 10, 11])
 
