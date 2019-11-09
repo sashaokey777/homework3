@@ -39,7 +39,7 @@
                     newArr.push(array[i]);
                 }
             }
-            return newArr.sort( (a,b) => a-b);
+            return newArr.sort((a, b) => a - b);
         }
         sortOddNumbers([2, 5, 3, 6, 9, 8, 10, 11])
 
@@ -61,11 +61,16 @@
         // совпадают с этой подстрокой 'jitb'. Используем  toLowerCase() и indexOf() методы  !!
         function matchWithString(array) {
             const str = 'jitb';
-            let newArr = array.split('').toLowerCase().indexOf;
-            
-
+            let resultArr = [];
+            for (let i = 0; i < array.length; i++) {
+                if (Array.from(str).indexOf(array[i][0].toLowerCase()) != -1) {
+                    resultArr.push(array[i]);
+                }
+            }
+            return resultArr.join(' ').toString().toLowerCase();
         }
-        matchWithString(['Javascript', 'nice', 'coding', 'is', 'the', 'language', 'Best', 'worst']); // должно вывести javascript is the best
+        matchWithString(['Javascript', 'nice', 'coding', 'is', 'the', 'language', 'Best',
+        'worst']); // должно вывести javascript is the best
 
         // 6) Написать функцию котороя принимает строку и возвращает подстроку и количество таких подстрок в строке! 
         function sameSubstring(str) {
@@ -77,16 +82,31 @@
 
         // 7) Написать функцию которая перемножает числа от 5 до 10 через рекурсию!!!
         function recursive(from, to) {
-            if (from==to) {
+            if (from == to) {
                 return from;
             }
-                    return from * recursive(from+1, to);
-                }           
+            return from * recursive(from + 1, to);
+        }
         recursive(5, 10);
 
         // 8) Написать функцию котороя принимает число и проверяет простое ли число, если да то возвращает true иначе false!!
         function isPrime(num) {
-            // ваш код
+            if (num === 2) {
+                return true;
+            } else if (num > 1) {
+                for (let i = 2; i < num; i++) {
+                    if (num % i !== 0) {
+                        return true;
+                    } else if (num === i * i) {
+                        return false
+                    } else {
+                        return false;
+                    }
+                }
+            } else {
+                return false;
+            }
+
         }
         isPrime(7); // true
         isPrime(6); // false
