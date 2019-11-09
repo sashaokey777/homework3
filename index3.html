@@ -33,24 +33,26 @@
         //  -сортирует массив
         // - и возвращает отсортированный массив
         function sortOddNumbers(array) {
-            var newArray = [];
-            for (let i = array.length - 1; i >= 0; i--) {
-                newArray[newArray.length] = array[i];
+            var newArr = [];
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] % 2 !== 0) {
+                    newArr.push(array[i]);
+                }
             }
-            var arrey1 = sortOddNumbers.sort();
-            return newArray;
+            return newArr.sort( (a,b) => a-b);
         }
         sortOddNumbers([2, 5, 3, 6, 9, 8, 10, 11])
 
         // 4) Написать функцию котороя принимает массив, и выводит новый массив из тех элементов которые кратны 5!!
         function multipleOfFive(array) {
-            let newArray = [];
-            var a = 5;
+            let newArr = [];
+            let a = 5;
             for (let i = 0; i < array.length; i++) {
-                if (i % a != 0) {
-                    newArray[newArray.length] = array[i];
+                if (array[i] % a == 0) {
+                    newArr.push(array[i]);
                 }
-                return newArray;
+            }
+            return newArr;
         }
         multipleOfFive([20, 5, 3, 23, 15, 8, 10, 11])
 
@@ -59,11 +61,11 @@
         // совпадают с этой подстрокой 'jitb'. Используем  toLowerCase() и indexOf() методы  !!
         function matchWithString(array) {
             const str = 'jitb';
-            // ваш код
+            let newArr = array.split('').toLowerCase().indexOf;
+            
+
         }
-        matchWithString(['Javascript', 'nice', 'coding', 'is', 'the', 'language', 'Best',
-            'worst'
-        ]); // должно вывести javascript is the best
+        matchWithString(['Javascript', 'nice', 'coding', 'is', 'the', 'language', 'Best', 'worst']); // должно вывести javascript is the best
 
         // 6) Написать функцию котороя принимает строку и возвращает подстроку и количество таких подстрок в строке! 
         function sameSubstring(str) {
@@ -74,10 +76,13 @@
         sameSubstring('xyzxyzxyz'); // рузльтат массив из ['xyz', 3]
 
         // 7) Написать функцию которая перемножает числа от 5 до 10 через рекурсию!!!
-        function recursive(number) {
-            // ваш код
-        }
-        recursive(5);
+        function recursive(from, to) {
+            if (from==to) {
+                return from;
+            }
+                    return from * recursive(from+1, to);
+                }           
+        recursive(5, 10);
 
         // 8) Написать функцию котороя принимает число и проверяет простое ли число, если да то возвращает true иначе false!!
         function isPrime(num) {
